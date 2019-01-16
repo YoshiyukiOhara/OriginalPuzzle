@@ -1,10 +1,12 @@
 package yoshiyukiohara.com.github.original15puzzle;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -17,7 +19,6 @@ public class GridAdapter extends BaseAdapter {
     }
 
     private List<Integer> imageList = new ArrayList<>();
-    private String[] names;
     private LayoutInflater inflater;
     private int layoutId;
 
@@ -27,7 +28,8 @@ public class GridAdapter extends BaseAdapter {
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layoutId = layoutId;
         imageList = iList;
-        names = tiles;
+
+        //Log.d("DEBUG_TEST", String.valueOf(tiles));
     }
 
     @Override
@@ -38,6 +40,7 @@ public class GridAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
+        //Log.d("DEBUG_TEST", String.valueOf(position));
         return null;
     }
 
@@ -63,7 +66,29 @@ public class GridAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        //Log.d("DEBUG_TEST", String.valueOf(position));
         holder.imageView.setImageResource(imageList.get(position));
+
+        /*
+        // 隣が空ならピースを移動
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("DEBUG_TEST", String.valueOf(imageList.get(0)));
+                Log.d("DEBUG_TEST", String.valueOf(imageList.get(1)));
+                //Log.d("DEBUG_TEST", String.valueOf(position));
+
+                //Log.d("DEBUG_TEST", String.valueOf(imageList.get(0)));
+
+                int num1 = imageList.get(0);
+                int num2 = imageList.get(1);
+                int temp = num1;
+
+                imageList.set(0, num2);
+                imageList.set(1, temp);
+            }
+        });
+        */
 
         return convertView;
     }
