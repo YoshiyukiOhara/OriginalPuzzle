@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/relativeLayout"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/icon_number02_black24_00"
+        android:layout_alignParentLeft="true"/>
 
     <GridView
         android:id="@+id/gridView"
@@ -14,6 +22,7 @@
         android:horizontalSpacing="0dp"
         android:verticalSpacing="0dp"
         android:numColumns="3"
-        android:stretchMode="columnWidth" />
+        android:stretchMode="columnWidth"
+        android:layout_below="@id/imageView"/>
 
 </RelativeLayout>
